@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcs1w5t5d1j2f"]
+
+[ext_resource type="Script" path="res://scripts/components/powerups/grow_powerup.gd" id="1_xgyv5"]
+[ext_resource type="Texture2D" uid="uid://c8wejgv22ayr8" path="res://assets/textures/paddles/basic_paddle_3.png" id="2_yqj5v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmpjr"]
+radius = 32.0
+
+[node name="GrowPowerUp" type="Area2D"]
+collision_layer = 128
+collision_mask = 1
+script = ExtResource("1_xgyv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yqj5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nmpjr")

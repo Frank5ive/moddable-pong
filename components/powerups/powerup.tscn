@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpgv87f7d8f3e"]
+
+[ext_resource type="Script" path="res://scripts/components/powerups/powerup.gd" id="1_psd4w"]
+[ext_resource type="Texture2D" uid="uid://b1d64epi2u85s" path="res://assets/textures/spaces/vortex.png" id="2_n7f8b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xly0i"]
+radius = 32.0
+
+[node name="PowerUp" type="Area2D"]
+collision_layer = 128
+collision_mask = 1
+script = ExtResource("1_psd4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n7f8b")
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xly0i")

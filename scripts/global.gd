@@ -15,6 +15,16 @@ var score = {
 	Player.RIGHT: 0,
 }
 
+var hit_counter: int = 0
+const HITS_FOR_SPEED_INCREASE: int = 5
+const SPEED_INCREASE_FACTOR: float = 1.1
+
+func register_hit() -> bool:
+	hit_counter += 1
+	if hit_counter >= HITS_FOR_SPEED_INCREASE:
+		hit_counter = 0
+		return true
+	return false
 
 func score_goal(ball: Node2D, player: Player):
 	goal_scored.emit(ball, player)

@@ -78,6 +78,7 @@ func _ready():
 	if Engine.is_editor_hint():
 		set_process(false)
 		set_physics_process(false)
+	add_to_group("balls")
 	reset()
 
 
@@ -103,6 +104,8 @@ func _on_body_entered(body: Node2D):
 		$PaddleAudioStreamPlayer.play()
 		touched_paddle.emit()
 		_hang_timer.time_left = hang_time
+		if Global.register_hit():
+			linear_velocity *= Global.SPEED_INCREASE_FACTOR
 	else:
 		$WallAudioStreamPlayer.play()
 		if body.is_in_group("obstacles"):
